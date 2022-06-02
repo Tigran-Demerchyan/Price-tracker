@@ -21,7 +21,7 @@ public class EmailScheduler {
     @Autowired
     private PriceDetailController priceDetailController;
 
-    @Value("run.scheduler")
+    @Value("${run.scheduler}")
     private String runScheduler;
 
     @Scheduled(fixedRate = 120, timeUnit = TimeUnit.SECONDS)
