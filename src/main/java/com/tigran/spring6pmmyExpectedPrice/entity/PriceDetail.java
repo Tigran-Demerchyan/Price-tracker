@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "price_detail")
@@ -25,6 +26,9 @@ public class PriceDetail {
     private boolean emailSent;
     @Column(name = "new_price")
     private Double newPrice;
+
+    @OneToMany(mappedBy = "priceDetail")
+    private List<PriceDetailHistory> priceDetailHistories;
 
     public PriceDetail(PriceDetailDto priceDetailDto) {
         this.price = priceDetailDto.getPrice();
