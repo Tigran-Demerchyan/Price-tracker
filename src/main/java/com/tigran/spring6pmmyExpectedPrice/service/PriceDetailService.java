@@ -43,7 +43,7 @@ public class PriceDetailService {
             log.info("email sending to " + priceDetail.getClientEmail());
 
             emailSender.sendMyEmail(to, subject, body);
-            priceDetail.setNewPrice(scrappedProduct.getPrice());
+
             priceDetail.setEmailSent(true);
 
             priceDetailRepository.save(priceDetail);

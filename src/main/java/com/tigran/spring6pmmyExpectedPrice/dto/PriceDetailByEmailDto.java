@@ -16,7 +16,7 @@ public class PriceDetailByEmailDto {
         this.price = priceDetail.getPrice();
         this.url= priceDetail.getUrl();
         this.clientEmail= priceDetail.getClientEmail();
-        this.newPrice= priceDetail.getNewPrice();
+        
 
     }
 }

@@ -24,8 +24,7 @@ public class PriceDetail {
     private String clientEmail;
     @Column(name = "email_sent")
     private boolean emailSent;
-    @Column(name = "new_price")
-    private Double newPrice;
+
 
     @OneToMany(mappedBy = "priceDetail")
     private List<PriceDetailHistory> priceDetailHistories;
