@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="true">
+    <contextName>Appsupport</contextName>
+    <springProperty scope="context" name="ACTIVE_PROFILE" source="spring.profiles.active"/>
+    <jmxConfigurator/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>SPRINGBOOT ${ACTIVE_PROFILE} [%thread] [%level] [%d{dd.MM.yyyy HH:mm:ss}] --- %c: %m%n%xEx
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/var/log/6pmTracker.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                /var/log/%d{yyyy-MM-dd}-6pmTracker%i.log.zip
+            </fileNamePattern>
+
+            <maxFileSize>20MB</maxFileSize>
+            <MaxHistory>10</MaxHistory>
+            <totalSizeCap>50MB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>SPRINGBOOT ${ACTIVE_PROFILE} [%thread] [%level] [%d{dd.MM.yyyy HH:mm:ss}] --- %c: %m%n%xEx
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="FILE_APPENDER"/>
+        <appender-ref ref="console"/>
+    </root>
+
+
+</configuration>
