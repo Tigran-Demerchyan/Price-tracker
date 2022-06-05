@@ -3,12 +3,8 @@ package com.tigran.spring6pmmyExpectedPrice.controller;
 import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailHistoryDto;
 import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetailHistory;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailHistoryRepository;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
