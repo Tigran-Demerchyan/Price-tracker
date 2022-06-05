@@ -6,10 +6,11 @@ import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetailHistory;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailHistoryRepository;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailRepository;
 import com.tigran.spring6pmmyExpectedPrice.scrapper.ProductScrapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,16 +19,13 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 @Slf4j
+@RequiredArgsConstructor
 public class PriceDetailHistoryService {
 
-    @Autowired
-    private PriceDetailHistoryRepository historyRepository;
+    private final PriceDetailHistoryRepository historyRepository;
+    private final PriceDetailRepository priceDetailRepository;
+    private final ProductScrapper scrapper;
 
-    @Autowired
-    private PriceDetailRepository priceDetailRepository;
-
-    @Autowired
-    private ProductScrapper scrapper;
 
     public void checkPrice() throws IOException {
         List<PriceDetail> allPriceDetails = priceDetailRepository.findAll();
@@ -38,7 +36,8 @@ public class PriceDetailHistoryService {
 
             List<PriceDetailHistory> priceDetailHistories = curr.getPriceDetailHistories();
             List<Double> priceHistoryList = priceDetailHistories.stream()
-                    .map(m -> m.getPrice()).collect(Collectors.toList());
+                    .map(m -> m.getPrice())
+                    .collect(Collectors.toList());
 
             if (!priceHistoryList.contains(scrappedProduct.getPrice()) || priceDetailHistories.isEmpty()) {
 
@@ -51,9 +50,7 @@ public class PriceDetailHistoryService {
                 historyRepository.save(priceDetailHistory);
             }
 
-
         }
-
 
     }
 

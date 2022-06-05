@@ -1,14 +1,16 @@
 package com.tigran.spring6pmmyExpectedPrice.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "price_detail_history")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class PriceDetailHistory {
     @Id

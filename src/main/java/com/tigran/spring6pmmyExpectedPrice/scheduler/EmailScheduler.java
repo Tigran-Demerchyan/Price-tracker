@@ -15,6 +15,10 @@ import java.util.concurrent.TimeUnit;
 @Service
 @Slf4j
 public class EmailScheduler {
+    public static void main(String[] args) {
+
+    }
+
     @Autowired
     private PriceDetailHistoryService historyService;
 
@@ -22,12 +26,12 @@ public class EmailScheduler {
     private PriceDetailController priceDetailController;
 
     @Value("${run.scheduler}")
-    private String runScheduler;
+    private Boolean runScheduler;
 
-    @Scheduled(fixedRate = 120, timeUnit = TimeUnit.SECONDS)
+    @Scheduled(fixedRate = 2, timeUnit = TimeUnit.MINUTES)
     public void sendEmail() throws IOException {
-        boolean toBoolean = Boolean.parseBoolean(runScheduler);
-        if (!toBoolean) {
+
+        if (!runScheduler) {
             return;
         }
         log.info("worked scheduler sendEmail");
@@ -35,10 +39,9 @@ public class EmailScheduler {
     }
 
 
-    @Scheduled(fixedRate = 120, timeUnit = TimeUnit.SECONDS)
+    @Scheduled(fixedRate = 2, timeUnit = TimeUnit.MINUTES)
     public void savePriceDetailHistoryScheduler() throws IOException {
-        boolean toBoolean = Boolean.parseBoolean(runScheduler);
-        if (!toBoolean) {
+        if (!runScheduler) {
             return;
         }
         log.info("worked scheduler savePriceDetailHistoryScheduler");

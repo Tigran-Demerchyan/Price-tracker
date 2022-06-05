@@ -1,15 +1,12 @@
 package com.tigran.spring6pmmyExpectedPrice.controller;
 
-import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailDto;
 import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailByEmailDto;
-import com.tigran.spring6pmmyExpectedPrice.dto.ProductDto;
+import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailDto;
 import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetail;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailRepository;
-import com.tigran.spring6pmmyExpectedPrice.scrapper.ProductScrapper;
-import com.tigran.spring6pmmyExpectedPrice.service.EmailSender;
 import com.tigran.spring6pmmyExpectedPrice.service.PriceDetailService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -19,12 +16,11 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/products")
 @Slf4j
+@RequiredArgsConstructor
 public class PriceDetailController {
-    @Autowired
-    private PriceDetailRepository priceDetailRepository;
 
-    @Autowired
-    private PriceDetailService priceDetailService;
+    private final PriceDetailRepository priceDetailRepository;
+    private final PriceDetailService priceDetailService;
 
     @PostMapping("/create")
     public void addMyPriceToData(@RequestBody PriceDetailDto priceDetailDto) {

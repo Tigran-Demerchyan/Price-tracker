@@ -1,15 +1,17 @@
 package com.tigran.spring6pmmyExpectedPrice.entity;
 
 import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailDto;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "price_detail")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class PriceDetail {
     @Id
@@ -33,6 +35,6 @@ public class PriceDetail {
         this.price = priceDetailDto.getPrice();
         this.url = priceDetailDto.getUrl();
         this.clientEmail = priceDetailDto.getClientEmail();
-        this.emailSent=false;
+        this.emailSent = false;
     }
 }
