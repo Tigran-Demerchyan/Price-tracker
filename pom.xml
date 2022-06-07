@@ -78,6 +78,31 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+
+				<executions>
+					<execution>
+						<id>fronend-build</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+
+							<executable>npm</executable>
+							<workingDirectory>src/main/resources/frontend/</workingDirectory>
+							<arguments>
+								<argument>run</argument>
+								<argument>install-and-build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

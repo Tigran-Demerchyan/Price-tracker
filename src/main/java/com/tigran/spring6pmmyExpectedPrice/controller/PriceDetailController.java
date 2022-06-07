@@ -36,8 +36,8 @@ public class PriceDetailController {
     }
 
 
-    @GetMapping("/{email}")
-    public List<PriceDetailByEmailDto> getDataByEmail(@PathVariable String email) {
+    @GetMapping()
+    public List<PriceDetailByEmailDto> getDataByEmail(@RequestParam("email") String email) {
         List<PriceDetail> byEmail = priceDetailRepository.findByEmail("%" + email + "%");
         return byEmail.stream()
                 .map(myPrice -> new PriceDetailByEmailDto(myPrice))

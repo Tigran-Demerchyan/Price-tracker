@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-Regular.ttf') format('ttf');
+}
+
+body {
+  font-family: 'Inter';
+}
+
+.css-1ps6pg7-MuiPaper-root {
+  box-shadow: none !important;
+}
+
+.caroussel-content {
+  overflow: hidden;
+  position: relative;
+  bottom: 150px;
+}
+
+.caroussel-dots {
+  bottom: -40px;
+}
+.caroussel-dots>* {
+  background-color: #fff !important;
+  border-radius: 7px;
+  cursor: pointer;
+  height: 10px !important;
+  margin: 0 10px;
+  width: 10px !important;
+  border-radius: 50% !important;
+  border: solid 3px #b6b7bb;
+}
+.btn-next>svg {
+  display: none;
+}
+
+.btn-prev>svg {
+  display: none;
+}
+
+.PrivateSwitchBase-input .css-1m9pwf3 {
+  border-radius: 50px;
+}
+
+.css-1480iag-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: none !important;
+}
+
+.css-1480iag-MuiInputBase-root-MuiInput-root:after {
+  border-bottom: none !important;
+}
+
+.css-88nv5c-MuiInputBase-root-MuiInput-root-MuiSelect-root:before {
+  border-bottom: none !important;
+}
+
+.css-88nv5c-MuiInputBase-root-MuiInput-root-MuiSelect-root:after {
+  border-bottom: none !important;
+}
+
+.css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon {
+  display: none !important;
+}
+
+.css-19ygod6-MuiNativeSelect-select-MuiInputBase-input-MuiInput-input {
+  font-size: 12px !important;
+  color: #6B7280 !important;
+}
+
+.css-88nv5c-MuiInputBase-root-MuiInput-root-MuiSelect-root {
+  color: #111827 !important;
+}
+
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input:focus {
+  display: none !important;
+}
+
+.css-1agwao2-MuiFormControl-root {
+  margin: 0 8px !important;
+}
+
+.css-cio0x1-MuiInputBase-root-MuiFilledInput-root {
+  background: none !important;
+  padding-top: 40px !important;
+}
+
+.css-e4w4as-MuiFormLabel-root-MuiInputLabel-root {
+  color: #9CA3AF !important;
+  left: -11px !important;
+}
+
+.activeRoute {
+  background-color: red;
+}
+
+.active-navlink {
+  color: red;
+}
