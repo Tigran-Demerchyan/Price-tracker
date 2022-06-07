@@ -3,7 +3,12 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductAsync, fetchProductByEmailAsync, selectProducts } from '../../features/product/productSlice';
 
-
+import {
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
 const Home = () => {
 
   const products = useSelector(selectProducts);
@@ -40,7 +45,7 @@ const Home = () => {
       <input type="text" onChange={e => setEmail(e.target.value)} /> <button onClick={search}>Search </button>
 
 
-      {products.map(e => (<div key={e.id}> {e.price}  ||| {e.clientEmail} ||| {e.url}</div>))}
+      {products.map(e => (<div key={e.id}> {e.price}  ||| {e.clientEmail} ||| {e.url} |||  <Link to={'/history/' + e.id}>history</Link></div>))}
 
 
 

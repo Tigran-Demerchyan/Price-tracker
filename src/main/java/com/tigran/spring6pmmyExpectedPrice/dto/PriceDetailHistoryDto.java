@@ -11,9 +11,11 @@ import java.time.LocalDateTime;
 public class PriceDetailHistoryDto {
     private double price;
     private LocalDateTime time;
+    private int id;
 
     public PriceDetailHistoryDto(PriceDetailHistory history) {
         this.price = history.getPrice();
-        this.time=history.getDate();
+        this.time = history.getDate();
+        this.id = history.getId();
     }
 }
