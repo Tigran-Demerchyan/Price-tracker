@@ -9,6 +9,8 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
+import styles from './Home.module.css';
+
 const Home = () => {
 
   const products = useSelector(selectProducts);
@@ -40,24 +42,36 @@ const Home = () => {
   }
 
   return (
+
     <Fragment>
-
-      <input type="text" onChange={e => setEmail(e.target.value)} /> <button onClick={search}>Search </button>
-
+      <div className={styles.homePage}>
+        <input className={styles.inputSearch} type="text" placeholder='Search' onChange={e => setEmail(e.target.value)} />
+        <button className={styles.btn} onClick={search}>Search </button>
+      </div>
 
       {products.map(e => (<div key={e.id}> {e.price}  ||| {e.clientEmail} ||| {e.url} |||  <Link to={'/history/' + e.id}>history</Link></div>))}
 
+      <h1 className={styles.title}> Add new product</h1>
 
-
-      <h1> Add new product</h1>
-
-      Link <input type="text" onChange={e => setLink(e.target.value)} />
-
-      email <input type="text" onChange={e => setNewEmail(e.target.value)} />
-      price <input type="text" onChange={e => setPrice(e.target.value)} />
-
-      <button onClick={addNewProduct}>Add new</button>
-
+      <div >
+        <div className={styles.homePageLink}>
+          <div>
+            <p>Link</p>
+            <input className={styles.input} type="text" onChange={e => setLink(e.target.value)} />
+          </div>
+          <div>
+            <p> Email </p>
+            <input className={styles.input} type="text" onChange={e => setNewEmail(e.target.value)} />
+          </div>
+          <div>
+            <p> Price</p>
+            <input className={styles.input} type="text" onChange={e => setPrice(e.target.value)} />
+          </div>
+          <div>
+            <button className={styles.button} onClick={addNewProduct}>Add new</button>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 }
