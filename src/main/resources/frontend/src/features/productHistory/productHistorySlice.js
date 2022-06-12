@@ -19,7 +19,6 @@ export const fetchProductHistoryByIdAsync = createAsyncThunk(
 
 
 
-
 export const productHistorySlice = createSlice({
   name: 'history',
   initialState,
