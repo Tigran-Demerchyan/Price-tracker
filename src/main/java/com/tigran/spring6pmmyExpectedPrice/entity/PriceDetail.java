@@ -28,7 +28,7 @@ public class PriceDetail {
     private boolean emailSent;
 
 
-    @OneToMany(mappedBy = "priceDetail")
+    @OneToMany(mappedBy = "priceDetail", cascade = CascadeType.REMOVE)
     private List<PriceDetailHistory> priceDetailHistories;
 
     public PriceDetail(PriceDetailDto priceDetailDto) {
