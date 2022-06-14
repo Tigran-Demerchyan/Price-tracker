@@ -22,7 +22,7 @@ public class PriceDetailController {
     private final PriceDetailRepository priceDetailRepository;
     private final PriceDetailService priceDetailService;
 
-    @PostMapping("/create")
+    @PostMapping()
     public void addMyPriceToData(@RequestBody PriceDetailDto priceDetailDto) {
         priceDetailService.addMyExpectedPrice(priceDetailDto);
     }
@@ -42,6 +42,11 @@ public class PriceDetailController {
         return byEmail.stream()
                 .map(myPrice -> new PriceDetailByEmailDto(myPrice))
                 .collect(Collectors.toList());
+    }
+    @DeleteMapping("/{id}")
+
+    public void deleteDetailsById(@PathVariable int id){
+        priceDetailRepository.deleteById(id);
     }
 
 }
