@@ -9,6 +9,8 @@ import styles from './ProductHistory.module.css';
 const ProductHistory = () => {
 
     const history = useSelector(selectHistory);
+    
+
     let params = useParams();
 
     const dispatch = useDispatch();

@@ -84,11 +84,17 @@
     background-color: #000;
 }
 
+.btnDelete{
+    border: none;
+    padding: 5px 8px;
+    border-radius: 22px;
+    background: #f16565;
+}
 .price{
     font-weight: 600;  
 }
 .link{
-    color: #3498db; 
+    color: #000; 
     font-weight: 600;
 }
 .boxImages{

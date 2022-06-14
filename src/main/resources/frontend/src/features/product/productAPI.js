@@ -16,3 +16,4 @@ export function addNewProduct(product){
     return response.data
   })
 }
+

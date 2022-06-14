@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductAsync, fetchProductByEmailAsync, selectProducts } from '../../features/product/productSlice';
+import { fetchProductDeleteByIdAsync, selectDelete, del } from '../../features/productDelete/productDeleteSlice';
 
 import {
   Routes,
@@ -15,13 +16,19 @@ const Home = () => {
 
   const products = useSelector(selectProducts);
 
+
   const [email, setEmail] = useState('');
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchProductByEmailAsync(""))
   }, []);
 
+  function handDelete() {
+    
+    dispatch(fetchProductDeleteByIdAsync())
+  }
 
   function search() {
     dispatch(fetchProductByEmailAsync(email))
@@ -41,13 +48,11 @@ const Home = () => {
     dispatch(addProductAsync(p))
   }
 
+
   return (
 
     <Fragment>
-      <div className={styles.header}>
-
-      </div>
-
+    
       <div className={styles.banner}>
         <h1 className={styles.title}>TRACK 6PM PRICES FOR FREE!</h1>
         <p className={styles.subTitle}>We track prices and availability of 6pm products for you! Get the best price and save money by utilizing 6pm.net.</p>
@@ -64,22 +69,21 @@ const Home = () => {
             <th>Email</th>
             <th>Link</th>
             <th>History</th>
+            <th>Delete</th>
           </tr>
         </thead>
         {products.map(e => (
-          <tbody>
+          <tbody key={e.id}>
             <tr>
               <td data-column="price" className={styles.price}>{e.price}</td>
               <td data-column="clientEmail">{e.clientEmail}</td>
               <td data-column="url">{e.url}</td>
               <td data-column="history"><Link className={styles.link} to={'/history/' + e.id}>history</Link></td>
+              <td data-column="history"><button onClick={() => handDelete(del)} className={styles.btnDelete}>Delete</button></td>
             </tr>
           </tbody>
         ))}
       </table>
-
-
-      {/* <div key={e.id}> {e.price}  ||| {e.clientEmail} ||| {e.url} |||  <Link to={'/history/' + e.id}>history</Link></div> */}
 
       <div>
         <div className={styles.homePageLink}>
