@@ -1,8 +1,8 @@
 
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductAsync, fetchProductByEmailAsync, selectProducts } from '../../features/product/productSlice';
-import { fetchProductDeleteByIdAsync, selectDelete, del } from '../../features/productDelete/productDeleteSlice';
+import { addProductAsync, fetchProductByEmailAsync, selectProducts , deleteProductAsync} from '../../features/product/productSlice';
+
 
 import {
   Routes,
@@ -25,9 +25,9 @@ const Home = () => {
     dispatch(fetchProductByEmailAsync(""))
   }, []);
 
-  function handDelete() {
+  function handDelete(id) {
     
-    dispatch(fetchProductDeleteByIdAsync())
+    dispatch(deleteProductAsync(id))
   }
 
   function search() {
@@ -79,7 +79,7 @@ const Home = () => {
               <td data-column="clientEmail">{e.clientEmail}</td>
               <td data-column="url">{e.url}</td>
               <td data-column="history"><Link className={styles.link} to={'/history/' + e.id}>history</Link></td>
-              <td data-column="history"><button onClick={() => handDelete(del)} className={styles.btnDelete}>Delete</button></td>
+              <td data-column="history"><button onClick={() => handDelete(e.id)} className={styles.btnDelete}>Delete</button></td>
             </tr>
           </tbody>
         ))}

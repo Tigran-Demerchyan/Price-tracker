@@ -17,3 +17,11 @@ export function addNewProduct(product){
   })
 }
 
+
+export function deleteById(id) {
+  return axClinet.delete('/products/' + id)
+    .then(response => {
+      return response.data
+    })
+}
+
