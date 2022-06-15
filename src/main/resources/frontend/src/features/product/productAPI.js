@@ -11,7 +11,7 @@ export function fetchProductByEmail(email) {
 
 
 export function addNewProduct(product){
-  return axClinet.post('/products/create',product )
+  return axClinet.post('/products',product )
   .then(response => {
     return response.data
   })

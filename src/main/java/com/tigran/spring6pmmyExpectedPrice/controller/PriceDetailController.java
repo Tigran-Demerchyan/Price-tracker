@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +28,7 @@ public class PriceDetailController {
 
 
     @PostMapping("/send")
-    public void sendEmail() throws IOException {
+    public void sendEmail() {
         List<PriceDetail> priceByEmailSent = priceDetailRepository.findMyPriceByEmailSent(false);
         priceDetailService.savePriceDetailList(priceByEmailSent);
 
@@ -43,9 +42,10 @@ public class PriceDetailController {
                 .map(myPrice -> new PriceDetailByEmailDto(myPrice))
                 .collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
 
-    public void deleteDetailsById(@PathVariable int id){
+    public void deleteDetailsById(@PathVariable int id) {
         priceDetailRepository.deleteById(id);
     }
 

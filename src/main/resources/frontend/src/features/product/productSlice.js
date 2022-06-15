@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addNewProduct, fetchProductByEmail , deleteById} from './productAPI';
+import { addNewProduct, fetchProductByEmail, deleteById } from './productAPI';
 
 const initialState = {
   products: [],
@@ -21,7 +21,7 @@ export const addProductAsync = createAsyncThunk(
   'product/addProduct',
   async (product) => {
     const response = await addNewProduct(product);
-
+    fetchProductByEmailAsync("")
     return response;
   }
 );
@@ -38,7 +38,7 @@ export const deleteProductAsync = createAsyncThunk(
 
 
 function refreshProducts(state, action) {
-  action.asyncDispatch(fetchProductByEmailAsync(state.email));
+  action.asyncDispatch(fetchProductByEmailAsync(""));
 }
 
 export const productSlice = createSlice({
@@ -59,7 +59,18 @@ export const productSlice = createSlice({
 
 
         state.products = action.payload;
-      });
+      })
+      .addCase(addProductAsync.fulfilled, (state, action) => {
+
+
+        refreshProducts(state, action)
+      })
+      .addCase(deleteProductAsync.fulfilled, (state, action) => {
+
+
+        refreshProducts(state, action)
+      })
+      ;
   },
 });
 

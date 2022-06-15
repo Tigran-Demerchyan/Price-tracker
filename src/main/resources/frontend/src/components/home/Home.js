@@ -55,7 +55,7 @@ const Home = () => {
     
       <div className={styles.banner}>
         <h1 className={styles.title}>TRACK 6PM PRICES FOR FREE!</h1>
-        <p className={styles.subTitle}>We track prices and availability of 6pm products for you! Get the best price and save money by utilizing 6pm.net.</p>
+        <p className={styles.subTitle}>We track prices and availability of 6pm products for you! Get the best price and save money by utilizing 6pm.com</p>
         <div className={styles.homePage}>
           <input className={styles.inputSearch} type="text" placeholder='Search' onChange={e => setEmail(e.target.value)} />
           <button className={styles.btn} onClick={search}><i className="fa fa-search" aria-hidden="true"></i></button>

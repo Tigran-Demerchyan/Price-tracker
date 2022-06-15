@@ -11,13 +11,10 @@ function App() {
   return (
     <Fragment>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/history/:id" element={<ProductHistory />} />
         
-        <Route
-          path="*"
-          element={<Navigate to="/home" replace />}
-        />
+
       </Routes>
     </Fragment>
   );
