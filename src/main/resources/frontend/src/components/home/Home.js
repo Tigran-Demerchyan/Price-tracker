@@ -55,7 +55,7 @@ const Home = () => {
     
       <div className={styles.banner}>
         <h1 className={styles.title}>TRACK 6PM PRICES FOR FREE!</h1>
-        <p className={styles.subTitle}>We track prices and availability of 6pm products for you! Get the best price and save money by utilizing 6pm.com</p>
+        <p className={styles.subTitle}>We track prices and availability of 6pm products for you! Get the best price and save money by utilizing  <a className={styles.link} href='https://www.6pm.com/' target="_blank">6pm.com</a></p>
         <div className={styles.homePage}>
           <input className={styles.inputSearch} type="text" placeholder='Search' onChange={e => setEmail(e.target.value)} />
           <button className={styles.btn} onClick={search}><i className="fa fa-search" aria-hidden="true"></i></button>
@@ -112,18 +112,22 @@ const Home = () => {
      <div>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/HP-Sandals._CB667991280_.jpg" />
         <p>Sandals on Sale</p>
+        <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank">Shop Sandals Now</a>
       </div>
       <div>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/HP-Sneakers.jpg" />
         <p>Sandals on Sale</p>
+        <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank">Shop Sandals Now</a>
       </div>
       <div>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/pages/homepage-refresh/clearance-closet.png" />
         <p>All your favorite brands and styles, starting at 70% off MSRP!</p>
+        <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank"> Shop Now </a>
       </div>
      </div>
     </Fragment>
   );
 }
+
 
 export default Home;
