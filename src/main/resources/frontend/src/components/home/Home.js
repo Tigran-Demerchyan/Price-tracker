@@ -77,7 +77,7 @@ const Home = () => {
             <tr>
               <td data-column="price" className={styles.price}>{e.price}</td>
               <td data-column="clientEmail">{e.clientEmail}</td>
-              <td data-column="url">{e.url}</td>
+                <a href={e.url} target="_blank" className={styles.linkUrl}><td data-column="url" >{e.url}</td></a>
               <td data-column="history"><Link className={styles.link} to={'/history/' + e.id}>history</Link></td>
               <td data-column="history"><button onClick={() => handDelete(e.id)} className={styles.btnDelete}>Delete</button></td>
             </tr>
@@ -88,7 +88,6 @@ const Home = () => {
       <div>
         <div className={styles.homePageLink}>
           <div className={styles.block}>
-            <p className={styles.homePageTitle}>Title</p>
           </div>
           <div>
             <p>Link</p>

@@ -1,6 +1,5 @@
 
-import { Link } from '@mui/material';
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { fetchProductHistoryByIdAsync, selectHistory } from '../../features/productHistory/productHistorySlice';
@@ -9,16 +8,12 @@ import styles from './ProductHistory.module.css';
 const ProductHistory = () => {
 
     const history = useSelector(selectHistory);
-    
-
     let params = useParams();
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchProductHistoryByIdAsync(params.id))
     }, []);
-
-
 
     return (
         <div className={styles.backgroundImage}>
@@ -34,8 +29,6 @@ const ProductHistory = () => {
                     </div>
                 ))}
             </div>
-            {/* <Link to="/home"><button className={styles.btn}>Home</button></Link> */}
-
         </div>
     );
 }
