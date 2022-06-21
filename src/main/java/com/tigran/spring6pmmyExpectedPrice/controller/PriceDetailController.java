@@ -1,5 +1,6 @@
 package com.tigran.spring6pmmyExpectedPrice.controller;
 
+import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailPageDto;
 import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailByEmailDto;
 import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailDto;
 import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetail;
@@ -7,6 +8,9 @@ import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailRepository;
 import com.tigran.spring6pmmyExpectedPrice.service.PriceDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +22,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PriceDetailController {
 
+    public static final int ITEM_PER_PAGE = 10;
     private final PriceDetailRepository priceDetailRepository;
     private final PriceDetailService priceDetailService;
 
@@ -36,11 +41,18 @@ public class PriceDetailController {
 
 
     @GetMapping()
-    public List<PriceDetailByEmailDto> getDataByEmail(@RequestParam("email") String email) {
-        List<PriceDetail> byEmail = priceDetailRepository.findByEmail("%" + email + "%");
-        return byEmail.stream()
+    public PriceDetailPageDto getDataByEmail(@RequestParam("email") String email, @RequestParam("pageNumber") int pageNumber) {
+        Pageable pageRequest = PageRequest.of(pageNumber, ITEM_PER_PAGE);
+
+        Page<PriceDetail> priceDetailPage = priceDetailRepository.findAllByEmail(email, pageRequest);
+
+        List<PriceDetailByEmailDto> priceDetailByEmailDtos = priceDetailPage.stream()
                 .map(myPrice -> new PriceDetailByEmailDto(myPrice))
                 .collect(Collectors.toList());
+
+        PriceDetailPageDto priceDetailPageDto = new PriceDetailPageDto(priceDetailByEmailDtos, priceDetailPage.getNumberOfElements(), priceDetailPage.getTotalPages());
+        return priceDetailPageDto;
+
     }
 
     @DeleteMapping("/{id}")
