@@ -35,14 +35,21 @@
 
 .inputSearch {
     height: 48px;
-    width: 650px;
+    width: 100%;
+    max-width: 650px;
     outline: none;
     padding: 0 20px;
+}
+.InputTable{
+    width: 55%;
+    color: #fff;
+    padding: 10px 22px;
+    background: black;
 }
 
 .input {
     height: 48px;
-    width: 890px;
+    width: 55%;
     outline: none;
     padding: 0 20px;
 }
@@ -54,18 +61,12 @@
 
 .homePageLink {
     display: flex;
-    padding: 50px 192px;
+    padding: 0 15px;
     align-items: baseline;
     flex-direction: column;
 
 }
 
-.block{
-    color: #fff;
-    width: 935px;
-    height: 71px;
-    background-color: #000;
-}
 .homePagePrice {
     display: flex;
     justify-content: center;
@@ -100,9 +101,10 @@
 .boxImages{
     display: flex;
     padding: 70px 6px;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .img{
+    width: 100%;
     max-width: 465px;
 }
 .homePageTitle{
@@ -116,6 +118,12 @@
 }
 .link6pm{
     color: #000;
+}
+.item{
+    margin: 5px 10px;
+}
+.blockItem{
+    width: 100%;
 }
 
 /* Table */
@@ -145,8 +153,7 @@ td, th {
 	}
 
 
-@media 
-only screen and (max-width: 760px),
+@media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
 	table { 
@@ -186,3 +193,39 @@ only screen and (max-width: 760px),
 	}
 
 }
+
+
+@media only screen and (max-width: 1024px) {
+
+    td, th {
+        font-size: 12px;
+    }
+}
+
+
+ @media only screen and (max-width: 800px) {
+    .homePage {
+       padding: 0 20px;
+    }
+    .boxImages{
+        flex-direction: column;
+    }
+    .boxImages{
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .input {
+        width: 70%;
+    }
+    .InputTable{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    td {
+        padding-left: 40%;
+    }
+}
+

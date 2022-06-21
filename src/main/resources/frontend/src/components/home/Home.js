@@ -85,20 +85,19 @@ const Home = () => {
         ))}
       </table>
 
-      <div>
         <div className={styles.homePageLink}>
           <div className={styles.block}>
           </div>
-          <div>
-            <p>Link</p>
+          <div className={styles.blockItem}>
+            <p className={styles.InputTable}>Link</p>
             <input className={styles.input} type="text" onChange={e => setLink(e.target.value)} />
           </div>
-          <div>
-            <p> Email </p>
+          <div className={styles.blockItem}>
+            <p className={styles.InputTable}> Email </p>
             <input className={styles.input} type="text" onChange={e => setNewEmail(e.target.value)} />
           </div>
-          <div>
-            <p> Price</p>
+          <div className={styles.blockItem}>
+            <p className={styles.InputTable}> Price</p>
             <input className={styles.input} type="text" onChange={e => setPrice(e.target.value)} />
           </div>
           <div>
@@ -106,19 +105,18 @@ const Home = () => {
           </div>
         </div>
 
-      </div>
      <div className={styles.boxImages}>
-     <div>
+     <div className={styles.item}>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/HP-Sandals._CB667991280_.jpg" />
         <p>Sandals on Sale</p>
         <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank">Shop Sandals Now</a>
       </div>
-      <div>
+      <div  className={styles.item}>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/HP-Sneakers.jpg" />
         <p>Sandals on Sale</p>
         <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank">Shop Sandals Now</a>
       </div>
-      <div>
+      <div  className={styles.item}>
         <img className={styles.img} src="https://m.media-amazon.com/images/G/01/6pm/landing/pages/homepage-refresh/clearance-closet.png" />
         <p>All your favorite brands and styles, starting at 70% off MSRP!</p>
         <a className={styles.link6pm} href='https://www.6pm.com/' target="_blank"> Shop Now </a>
