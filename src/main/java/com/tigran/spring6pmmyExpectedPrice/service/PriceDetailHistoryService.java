@@ -5,7 +5,7 @@ import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetail;
 import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetailHistory;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailHistoryRepository;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailRepository;
-import com.tigran.spring6pmmyExpectedPrice.scrapper.ProductScrapper;
+import com.tigran.spring6pmmyExpectedPrice.scrapper.GeneralScraper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,15 +24,16 @@ public class PriceDetailHistoryService {
 
     private final PriceDetailHistoryRepository historyRepository;
     private final PriceDetailRepository priceDetailRepository;
-    private final ProductScrapper scrapper;
+    private final GeneralScraper generalScraper;
 
 
     public void checkPrice() throws IOException {
         List<PriceDetail> allPriceDetails = priceDetailRepository.findAll();
 
         for (PriceDetail curr : allPriceDetails) {
+            String url = curr.getUrl();
+            ProductDto scrappedProduct = generalScraper.getScrappedProduct(url);
 
-            ProductDto scrappedProduct = scrapper.getScrappedProduct(curr.getUrl());
 
             List<PriceDetailHistory> priceDetailHistories = curr.getPriceDetailHistories();
             List<Double> priceHistoryList = priceDetailHistories.stream()

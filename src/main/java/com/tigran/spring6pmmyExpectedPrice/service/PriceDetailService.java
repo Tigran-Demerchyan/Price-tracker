@@ -4,7 +4,7 @@ import com.tigran.spring6pmmyExpectedPrice.dto.PriceDetailDto;
 import com.tigran.spring6pmmyExpectedPrice.dto.ProductDto;
 import com.tigran.spring6pmmyExpectedPrice.entity.PriceDetail;
 import com.tigran.spring6pmmyExpectedPrice.repo.PriceDetailRepository;
-import com.tigran.spring6pmmyExpectedPrice.scrapper.ProductScrapper;
+import com.tigran.spring6pmmyExpectedPrice.scrapper.GeneralScraper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class PriceDetailService {
     private PriceDetailRepository priceDetailRepository;
 
     @Autowired
-    private ProductScrapper productScrapper;
+    private GeneralScraper generalScraper;
 
     @Autowired
     private EmailSender emailSender;
@@ -32,13 +32,17 @@ public class PriceDetailService {
     }
 
     public void processItem(PriceDetail priceDetail) throws IOException {
-        ProductDto scrappedProduct = productScrapper.getScrappedProduct(priceDetail.getUrl());
+
+
+        String url = priceDetail.getUrl();
+        ProductDto scrappedProduct = generalScraper.getScrappedProduct(url);
+
 
         if (scrappedProduct.getPrice() < priceDetail.getPrice()) {
 
             String to = priceDetail.getClientEmail();
             String subject = "Your price with " + scrappedProduct.getPrice() + " is good";
-            String body = "Brand " + scrappedProduct.getBrand() + " model " + scrappedProduct.getModel() + " and url is " + priceDetail.getUrl();
+            String body = "Brand " + scrappedProduct.getBrand() + ",  model " + scrappedProduct.getModel() + " and url is " + url;
 
             log.info("email sending to " + priceDetail.getClientEmail());
 
