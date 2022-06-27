@@ -13,6 +13,7 @@ public class GeneralScraper {
     private final SixPmProductScrapper sixPmProductScrapper;
     private final ZapposProductScrapper zapposProductScrapper;
     private final BossProductScrapper bossProductScrapper;
+    private final RalphLaurenProductScrapper ralphLaurenProductScrapper;
 
     public ProductDto getScrappedProduct(String url) throws IOException {
 
@@ -22,8 +23,11 @@ public class GeneralScraper {
         if (url.contains("zappos")) {
             return zapposProductScrapper.getScrappedProduct(url);
         }
-        if (url.contains("hugoboss")){
+        if (url.contains("hugoboss")) {
             return bossProductScrapper.getScrappedProduct(url);
+        }
+        if (url.contains("ralphlauren")) {
+            return ralphLaurenProductScrapper.getScrappedProduct(url);
         }
 
         return null;

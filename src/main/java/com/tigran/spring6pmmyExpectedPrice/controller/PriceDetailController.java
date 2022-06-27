@@ -44,13 +44,16 @@ public class PriceDetailController {
     public PriceDetailPageDto getDataByEmail(@RequestParam("email") String email, @RequestParam("pageNumber") int pageNumber) {
         Pageable pageRequest = PageRequest.of(pageNumber, ITEM_PER_PAGE);
 
-        Page<PriceDetail> priceDetailPage = priceDetailRepository.findAllByEmail(email, pageRequest);
+        Page<PriceDetail> priceDetailPage = priceDetailRepository.findAllByEmail("%" + email + "%", pageRequest);
+
+
 
         List<PriceDetailByEmailDto> priceDetailByEmailDtos = priceDetailPage.stream()
                 .map(myPrice -> new PriceDetailByEmailDto(myPrice))
                 .collect(Collectors.toList());
 
-        PriceDetailPageDto priceDetailPageDto = new PriceDetailPageDto(priceDetailByEmailDtos, priceDetailPage.getNumberOfElements(), priceDetailPage.getTotalPages());
+        PriceDetailPageDto priceDetailPageDto = new PriceDetailPageDto(priceDetailByEmailDtos, (int) priceDetailPage.getTotalElements(),
+                priceDetailPage.getTotalPages());
         return priceDetailPageDto;
 
     }

@@ -1,33 +1,30 @@
 package com.tigran.spring6pmmyExpectedPrice.scrapper;
 
-import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-
 @Service
-@Slf4j
-public class SixPmProductScrapper extends AbstractScraper {
+public class RalphLaurenProductScrapper extends AbstractScraper {
 
     @Override
     protected String getBrand(Document document) {
-        return document.select("span.jt-z span").text();
+        Elements select = document.select("div.brand-name");
+        return select.text();
     }
 
     @Override
     protected String getModel(Document document) {
-        return document.select("span.kt-z").text();
+        Elements select = document.select("h1.product-name");
+        return select.text();
     }
 
     @Override
     protected double getPrice(Document document) {
-        String priceText = document.select("span").attr("aria-label");
+        String priceText = document.select("span.lowblack").text();
         priceText = priceText.replaceAll("\\$", "");
-        double price = Double.parseDouble(priceText);
-
-        return price;
+        return Double.parseDouble(priceText);
     }
-
 
 
 }

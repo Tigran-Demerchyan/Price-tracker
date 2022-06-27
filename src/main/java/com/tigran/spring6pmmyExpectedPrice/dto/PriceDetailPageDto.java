@@ -10,6 +10,6 @@ import java.util.List;
 public class PriceDetailPageDto {
 
     private List<PriceDetailByEmailDto> items;
-    private int totalCount;
-    private int pageCount;
+    private int totalElements;
+    private int totalPages;
 }
