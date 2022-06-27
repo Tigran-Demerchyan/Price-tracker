@@ -42,7 +42,7 @@ public class PriceDetailService {
 
             String to = priceDetail.getClientEmail();
             String subject = "Your price with " + scrappedProduct.getPrice() + " is good";
-            String body = "Brand " + scrappedProduct.getBrand() + ",  model " + scrappedProduct.getModel() + " and url is " + url;
+            String body = "Brand is " + scrappedProduct.getBrand() + ",  Model is " + scrappedProduct.getModel() + " and url is " + url;
 
             log.info("email sending to " + priceDetail.getClientEmail());
 
