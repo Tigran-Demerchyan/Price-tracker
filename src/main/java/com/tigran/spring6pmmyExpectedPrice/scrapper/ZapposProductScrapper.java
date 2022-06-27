@@ -24,6 +24,10 @@ public class ZapposProductScrapper  extends AbstractScraper{
         return Double.parseDouble(priceText);
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "zappos";
+    }
 
 
 }

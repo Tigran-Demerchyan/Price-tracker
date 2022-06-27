@@ -27,5 +27,10 @@ public class BossProductScrapper extends AbstractScraper {
         return Double.parseDouble(priceText);
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "hugoboss";
+    }
+
 
 }

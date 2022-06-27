@@ -13,6 +13,8 @@ public abstract class AbstractScraper {
     protected abstract String getModel(Document document);
     protected abstract double getPrice(Document document);
 
+    protected abstract String getSupportedUrl();
+
     public ProductDto getScrappedProduct(String url) throws IOException {
 
         Document document = Jsoup.connect(url).get();

@@ -28,6 +28,10 @@ public class SixPmProductScrapper extends AbstractScraper {
         return price;
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "6pm";
+    }
 
 
 }
