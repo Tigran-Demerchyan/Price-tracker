@@ -1,8 +1,7 @@
 
 .sliderImage{
-    width: 100%;
-    max-height: 400px;
-    max-width: 290px;
+    width: auto;
+    max-height: 354px;
 }
 .sliderLink{
     color: #3498db;

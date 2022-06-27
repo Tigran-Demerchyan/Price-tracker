@@ -118,7 +118,6 @@ const Home = () => {
             <Grid item xs={12} lg={6}>
               <h1>TRACK 6PM ZAPPOS HUGO BOSS PRICES FOR FREE!</h1>
               <p>We track prices and availability of 6pm, Zappos, Hugo Boss products for you! Get the best price and save money by utilizing</p>
-              <button className={styles.btn}>add</button>
             </Grid>
           </Grid>
         </div>
