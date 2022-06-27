@@ -13,8 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/history/:id" element={<ProductHistory />} />
-        
-
       </Routes>
     </Fragment>
   );

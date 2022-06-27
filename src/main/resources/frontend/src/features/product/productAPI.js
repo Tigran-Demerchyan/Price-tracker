@@ -1,8 +1,8 @@
 
 import { axClinet } from "../../axiosUtil"
 
-export function fetchProductByEmail(email) {
-  return axClinet.get('/products?email=' + email)
+export function fetchProductByEmail(email, pageNumber) {
+  return axClinet.get('/products?email=' + email + '&pageNumber='+ pageNumber)
     .then(response => {
       return response.data
     })
