@@ -26,5 +26,10 @@ public class RalphLaurenProductScrapper extends AbstractScraper {
         return Double.parseDouble(priceText);
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "ralphlauren";
+    }
+
 
 }

@@ -12,6 +12,6 @@ import java.util.List;
 public interface PriceDetailRepository extends JpaRepository<PriceDetail, Integer> {
     List<PriceDetail> findMyPriceByEmailSent(boolean emailSent);
 
-    @Query("from PriceDetail e where e.clientEmail like :email")
+    @Query("from PriceDetail e where e.clientEmail like :email order by id desc")
     Page<PriceDetail> findAllByEmail(@Param("email") String email, Pageable pageable);
 }

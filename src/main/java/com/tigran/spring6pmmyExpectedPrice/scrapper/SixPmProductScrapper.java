@@ -11,12 +11,12 @@ public class SixPmProductScrapper extends AbstractScraper {
 
     @Override
     protected String getBrand(Document document) {
-        return document.select("span.jt-z span").text();
+        return document.select("span.Uu-z span").text();
     }
 
     @Override
     protected String getModel(Document document) {
-        return document.select("span.kt-z").text();
+        return document.select("span.Vu-z").text();
     }
 
     @Override
@@ -28,6 +28,10 @@ public class SixPmProductScrapper extends AbstractScraper {
         return price;
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "6pm";
+    }
 
 
 }

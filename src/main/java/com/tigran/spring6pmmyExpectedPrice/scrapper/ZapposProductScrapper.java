@@ -9,12 +9,12 @@ public class ZapposProductScrapper  extends AbstractScraper{
 
     @Override
     protected String getBrand(Document document) {
-        return document.select("span.zx-z span").text();
+        return document.select("span.Xy-z span").text();
     }
 
     @Override
     protected String getModel(Document document) {
-        return document.select("span.Ax-z").text();
+        return document.select("span.Yy-z").text();
     }
 
     @Override
@@ -24,6 +24,10 @@ public class ZapposProductScrapper  extends AbstractScraper{
         return Double.parseDouble(priceText);
     }
 
+    @Override
+    protected String getSupportedUrl() {
+        return "zappos";
+    }
 
 
 }
