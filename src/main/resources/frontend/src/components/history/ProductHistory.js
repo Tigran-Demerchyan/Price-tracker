@@ -3,12 +3,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
-import { fetchProductHistoryByIdAsync, selectHistory } from '../../features/productHistory/productHistorySlice';
+import { fetchProductHistoryByIdAsync, selectHistoryPage } from '../../features/productHistory/productHistorySlice';
 import styles from './ProductHistory.module.css';
 
 const ProductHistory = () => {
 
-    const history = useSelector(selectHistory);
+    const history = useSelector(selectHistoryPage).items;
     let params = useParams();
 
     const dispatch = useDispatch();

@@ -22,7 +22,7 @@ public class PriceDetailHistoryController {
     private final PriceDetailHistoryRepository historyRepository;
 
     @GetMapping("/{id}")
-    public PriceDetailHistoryPageDto getHistory(@PathVariable("id") int id, @RequestParam("pageNumber") int pageNumber) {
+    public PriceDetailHistoryPageDto getHistory(@PathVariable("id") int id, @RequestParam(value = "pageNumber", required = false, defaultValue = "0") int pageNumber) {
         Pageable pageRequest = PageRequest.of(pageNumber, PriceDetailController.ITEM_PER_PAGE);
 
 

@@ -2,7 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchProductHistoryById } from './productHistoryAPI';
 
 const initialState = {
-  history: [],
+  historyPage: {
+    items:[]
+  },
 
 };
 
@@ -43,7 +45,7 @@ export const productHistorySlice = createSlice({
 
 
 
-export const selectHistory = (state) => state.history.history;
+export const selectHistoryPage = (state) => state.history.historyPage;
 
 
 export default productHistorySlice.reducer;
