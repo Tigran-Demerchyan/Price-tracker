@@ -31,9 +31,9 @@ public class EmailScheduler {
     @Scheduled(fixedRate = 2, timeUnit = TimeUnit.MINUTES)
     public void sendEmail() throws IOException {
 
-//        if (!runScheduler) {
-//            return;
-//        }
+        if (!runScheduler) {
+            return;
+        }
         log.info("worked scheduler sendEmail");
         priceDetailController.sendEmail();
     }
@@ -41,9 +41,9 @@ public class EmailScheduler {
 
     @Scheduled(fixedRate = 2, timeUnit = TimeUnit.MINUTES)
     public void savePriceDetailHistoryScheduler() throws IOException {
-//        if (!runScheduler) {
-//            return;
-//        }
+        if (!runScheduler) {
+            return;
+        }
         log.info("worked scheduler savePriceDetailHistoryScheduler");
         historyService.checkPrice();
 
