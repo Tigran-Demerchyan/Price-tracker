@@ -38,7 +38,7 @@ export const productHistorySlice = createSlice({
       .addCase(fetchProductHistoryByIdAsync.fulfilled, (state, action) => {
 
 
-        state.history = action.payload;
+        state.historyPage = action.payload;
       });
   },
 });

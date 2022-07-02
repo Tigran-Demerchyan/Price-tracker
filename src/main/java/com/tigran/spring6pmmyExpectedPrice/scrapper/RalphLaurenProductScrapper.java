@@ -9,8 +9,7 @@ public class RalphLaurenProductScrapper extends AbstractScraper {
 
     @Override
     protected String getBrand(Document document) {
-        Elements select = document.select("div.brand-name");
-        return select.text();
+       return "RalphLauren";
     }
 
     @Override

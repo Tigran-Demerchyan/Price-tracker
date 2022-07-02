@@ -8,8 +8,7 @@ public class BossProductScrapper extends AbstractScraper {
 
     @Override
     protected String getBrand(Document document) {
-        Elements select = document.select(".logo--boss-m.stage__logo--boss>title");
-        return select.text();
+       return "BOSS";
     }
 
     @Override

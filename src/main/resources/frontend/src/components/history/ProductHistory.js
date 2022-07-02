@@ -8,7 +8,8 @@ import styles from './ProductHistory.module.css';
 
 const ProductHistory = () => {
 
-    const history = useSelector(selectHistoryPage).items;
+    const page = useSelector(selectHistoryPage);
+    const history = page.items;
     let params = useParams();
 
     const dispatch = useDispatch();
