@@ -20,12 +20,12 @@ const ProductHistory = () => {
     return (
         <div className={styles.backgroundImage}>
             <div className={styles.conatiner}>
-               {history.length < 0 && <div className={styles.header}>
+                {history.length < 0 && <div className={styles.header}>
                     <p>Price</p>
                     <p>Time</p>
                 </div>}
                 {history.map(e => (
-                    <div className={styles.history} key={e.id}>
+                    <div key={e.id} className={styles.history}>
                         <p>{e.price}</p>
                         <p>{e.time}</p>
                     </div>

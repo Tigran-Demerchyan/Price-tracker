@@ -8,10 +8,9 @@
 
 .conatiner{
     position: relative;
-    top: 160px;
+    top: 320px;
     margin: 0 auto;
     max-width: 600px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .header{
     color: #fff;
@@ -20,33 +19,34 @@
     margin: 0 auto ;
     justify-content: space-between;
     padding: 0 89px;
-    background-color: #525252;
+    background-color: #000;
 }
 
 .history{
     display: flex;
     margin: 0 auto;
     max-width: 600px;
+    min-height: 100%;
+    background-color:#fcf6e8;
     justify-content: space-around;
     border-bottom: solid 1px #80808021;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .btn{
     cursor: pointer;
     position: relative;
     z-index: 200;
-    top: 150px;
     width: 300px;
     display: flex;
     border: none;
     padding: 16px 0;
-    color: #000;
+    color: #fff;
     margin: 25px auto 56px;
     justify-content: center;
-    background: #ddc6c6;
+    background: #000;
 }
 .link{
     display: flex;
-    padding-top: 213px;
     text-decoration: none;
     justify-content: center;
 }
